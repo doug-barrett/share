@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "109"
+includeSelector: "{ location: GOLD name: FCT_ORDERS_LINEITEM } OR { location: SILVER name: STG_ORDERS_LINEITEM } OR { location: SILVER name: STG_ORDERS_LINEITEM_KEYS } OR { location: BRONZE name: LINEITEM } OR { location: BRONZE name: ORDERS }"
+name: Fact job
+type: Job

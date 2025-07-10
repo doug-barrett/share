@@ -1,0 +1,28 @@
+config:
+  entities:
+    nodeTypes:
+      "173":
+        defaultStorageLocation: null
+        isDisabled: false
+      "188":
+        defaultStorageLocation: null
+        isDisabled: true
+      "194":
+        defaultStorageLocation: null
+        isDisabled: true
+      "204":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "205":
+        defaultStorageLocation: GOLD
+        isDisabled: false
+      "248":
+        defaultStorageLocation: null
+        isDisabled: false
+  packageVariables: ""
+fileVersion: 1
+id: "@coalesce/base-node-types"
+name: Base
+packageID: "@coalesce/base-node-types"
+releaseID: 360da3b1-79c1-4d68-8847-90302f2a7b61
+type: Package

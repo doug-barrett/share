@@ -1,0 +1,145 @@
+fileVersion: 1
+id: "1"
+macroString: |
+
+
+  {#-- ************************************************************************************************* #}
+  {#-- Utility Macros #}
+  {#-- ************************************************************************************************* #}
+
+  {#-- group_by #}
+  {#-- Eg {{ group_by(10) }} #}
+
+  {%- macro group_by(n) -%}
+      GROUP BY 
+      {%- for n in range(n) %} {{n + 1}}{%- if not loop.last %}, {% endif -%}
+      {% endfor -%}
+  {%- endmacro %}
+
+  {#-- even_odd #}
+  {#-- Eg {{ even_odd("C_CUSTKEY") }} #}
+
+  {%- macro even_odd(column) -%}
+      CASE WHEN MOD({{ column }}, 2) = 0 THEN 'EVEN' ELSE 'ODD' END
+  {%- endmacro %}
+
+  {#-- date_sk #}
+  {#-- Eg {{ date_sk("O_ORDERDATE") }} #}
+
+  {%- macro date_sk(column) -%}
+      TO_NUMBER(TO_CHAR({{ column }}, 'YYYYMMDD'))
+  {%- endmacro %}
+
+
+  {#-- ************************************************************************************************* #}
+  {#-- Testing templates #}
+  {#-- ************************************************************************************************* #}
+
+
+  {#-- Uniqueness #}
+  {#-- Eg {{ test_uniqueness(["L_ORDERKEY","L_LINENUMBER"])}} #}
+
+  {%- macro test_uniqueness(columns=[]) -%}
+      select 1 
+      from {{this}} 
+      group by 
+          {% for col in columns %}{{col}}{% if not loop.last %},{% endif %}{% endfor %}
+      having count(1) > 1
+  {%- endmacro %}
+
+
+  {#-- Contains #}
+  {#-- Eg {{ test_contains( "O_COMMENT", "TESTING") }}  #}
+
+  {%- macro test_contains(column, text) -%}
+      select 1 
+      from {{this}} 
+      where upper({{column}}) like '%' || upper('{{text}}') || '%'
+  {%- endmacro %}
+
+  {#-- Range #}
+
+  {%- macro test_range(column, lower, upper) -%}
+      select 1 
+      from {{this}} 
+      where not {{column}} between {{lower}} and {{upper}}
+  {%- endmacro %}
+
+  {#-- Rowcount #}
+  {#-- Eg {{ test_rowcount( "FROM {{ref('SRC_SAMPLE','LINEITEM')}}") }} #}
+
+  {%- macro test_rowcount(sql_from) -%}
+      select 1
+      from (select count(*) rc from {{this}} ) this
+      where rc <> (select nvl(count(*),0) {{sql_from}} )
+  {%- endmacro %}
+
+  {#-- Ref Integrity #}
+  {#-- Eg {{ test_ref_integrity("O_CUSTKEY", "C_CUSTKEY","{{ref('DWH','DIM_CUSTOMER')}}") }} #}
+
+  {%- macro test_ref_integrity(column, ref_table_col, ref_table) -%}
+      select 1
+      from {{this}} 
+      where {{column}} not in (select distinct {{ref_table_col}} from {{ref_table}} )
+  {%- endmacro %}
+
+  {#-- Missing days range #}
+  {#-- Eg {{ test_missing_dates("O_ORDERDATE", "1995-01-01", "1996-01-01") }} #}
+
+  {%- macro test_missing_dates(date_column, from, to) -%}
+      select dr.dt
+      from (
+          select '{{from}}'::date - 1 + row_number() over(order by 0) dt from table(generator(rowcount => 10000)) qualify dt <= '{{to}}') dr
+      left join 
+          (select {{date_column}}::date dt, count(*) cnt 
+           from {{this}}
+           group by 1) tab
+      on dr.dt = tab.dt
+      where nvl(tab.cnt, 0) = 0
+  {%- endmacro %}
+
+  {#-- Missing days range CURRENT_DATE offset #}
+  {#-- Eg {{ test_missing_date_offset("O_ORDERDATE", 100, 1) }} #}
+
+  {%- macro test_missing_date_offset(date_column, from, to) -%}
+      select dr.dt
+      from (
+          select CURRENT_DATE - {{from}} + row_number() over(order by 0) dt from table(generator(rowcount => 10000)) qualify dt <= CURRENT_DATE - {{to}}
+      ) dr
+      left join (
+          select {{date_column}}::date dt, count(*) cnt 
+          from {{this}}
+          group by 1
+      ) tab
+      on dr.dt = tab.dt
+      where nvl(tab.cnt, 0) = 0
+  {%- endmacro %}
+
+
+  {#-- ************************************************************************************************* #}
+  {#-- Metadata Macros #}
+  {#-- ************************************************************************************************* #}
+
+  {#-- replacer #}
+  {#-- used for column renames eg {{ replacer(column.name) }} #}
+  {#-- Eg {{ date_sk("O_ORDERDATE") }} #}
+
+  {%- macro replacer(column) -%}
+      {% set ns = namespace(col=column) %}
+      {% for p in parameters.replace %}
+          {% set ns.col = ns.col | replace(p.long,  p.short) %}
+      {% endfor %}
+      {{ ns.col }}
+  {%- endmacro %}
+
+
+  {%- macro ref_raw(location_name, node_name) -%}
+      {%- raw -%}{{ ref('{% endraw %}{{- location_name }}{% raw %}', '{% endraw %}{{ node_name }}{% raw %}') }}{% endraw %}
+  {%- endmacro -%}
+
+
+  {%- macro ref_no_link_raw(location_name, node_name) -%}
+      {% raw %}{{ ref_no_link('{% endraw %}{{ location_name }}{% raw %}', '{% endraw %}{{ node_name }}{% raw %}') }}{% endraw %}
+  {%- endmacro -%}
+name: macro
+type: Macro

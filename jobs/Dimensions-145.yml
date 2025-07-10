@@ -1,0 +1,6 @@
+excludeSelector: "+{ location: GOLD name: DIM_ORDERS }"
+fileVersion: 1
+id: "145"
+includeSelector: "+{ location: GOLD name: DIM_*}"
+name: Dimensions
+type: Job
