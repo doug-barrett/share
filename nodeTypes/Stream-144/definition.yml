@@ -1,0 +1,62 @@
+fileVersion: 1
+id: "144"
+isDisabled: true
+metadata:
+  defaultStorageLocation: SILVER
+  error: null
+  nodeMetadataSpec: |
+    capitalized: Stream
+    short: STR
+    tagColor: "yellow"
+    plural: Streams
+
+    deployStrategy: advanced
+
+    config:
+
+    - groupName: Stream
+      items:
+
+      - displayName: Initial Rows
+        attributeName: initialRows
+        type: toggleButton
+        default: true
+        isRequired: false
+
+      - displayName: Append Only
+        attributeName: appendOnly
+        type: toggleButton
+        default: false
+        isRequired: false
+
+    - groupName: Hidden config
+      enableIf: "false"
+      items:
+      - displayName: Type
+        type: materializationSelector
+        default: view
+        options:
+        - view
+        isRequired: true
+
+    systemColumns:
+    - displayName: "METADATA$ACTION"
+      transform: "METADATA$ACTION"
+      dataType: STRING
+      placement: end
+      attributeName: isStreamMetadataAction
+      description: Indicates the DML operation (INSERT, DELETE) recorded.
+    - displayName: "METADATA$ISUPDATE"
+      transform: "METADATA$ISUPDATE"
+      dataType: STRING
+      placement: end
+      attributeName: isStreamMetadataIsUpdate
+      description: Indicates whether the operation was part of an UPDATE statement.
+    - displayName: "METADATA$ROW_ID"
+      transform: "METADATA$ROW_ID"
+      dataType: STRING
+      placement: end
+      attributeName: isStreamMetadataRowId
+      description: Specifies the unique and immutable ID for the row, which can be used to track changes to specific rows over time.
+name: Stream
+type: NodeType

@@ -1,0 +1,128 @@
+fileVersion: 1
+id: 80e6eac3-0736-4c15-951f-d3ab73381d16
+name: HUB_NATION
+operation:
+  config:
+    disable_hwm: true
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Customer data as defined by TPC-H
+  isMultisource: true
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a2868114-c06c-4c7a-867d-bc8d661bf50d
+          stepCounter: 80e6eac3-0736-4c15-951f-d3ab73381d16
+        config:
+          is_Hub_hk: true
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_NATION_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ef124559-7901-4f02-93da-147f32ab3299
+                stepCounter: 83bfca62-43ae-4558-b1fd-d1b7b6d187ed
+            transform: ""
+          - columnReferences:
+              - columnCounter: b01b9e18-117e-49a0-9219-15904c83322d
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: db78da02-70d4-42d3-9790-7eb6d08be868
+          stepCounter: 80e6eac3-0736-4c15-951f-d3ab73381d16
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        hashDetails: null
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 954a5cbd-8f35-4eae-af24-46424acb15cb
+                stepCounter: 83bfca62-43ae-4558-b1fd-d1b7b6d187ed
+            transform: ""
+          - columnReferences:
+              - columnCounter: 3eed9b39-1588-4a51-a1fb-7f560ac416f4
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 809ba414-af88-4f66-872c-ef111ca00b51
+          stepCounter: 80e6eac3-0736-4c15-951f-d3ab73381d16
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        hashDetails: null
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3858095-40a4-412a-b67f-b4cf17860f1a
+                stepCounter: 83bfca62-43ae-4558-b1fd-d1b7b6d187ed
+            transform: ""
+          - columnReferences:
+              - columnCounter: 7312d6a3-7c9c-4ee3-99cd-93b61233b9b5
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20e39f10-74b4-49e7-bf59-e88f440617ee
+          stepCounter: 80e6eac3-0736-4c15-951f-d3ab73381d16
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: C_NATIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8db60dba-26f3-47bf-9862-09691102fb5e
+                stepCounter: 83bfca62-43ae-4558-b1fd-d1b7b6d187ed
+            transform: ""
+          - columnReferences:
+              - columnCounter: 7155cd45-1bad-47a5-a6dd-8200ca0f696a
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DVSTG_NATION: 83bfca62-43ae-4558-b1fd-d1b7b6d187ed
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_NATION
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DVSTG_NATION') }} "DVSTG_NATION"
+        name: NATION
+        noLinkRefs: []
+      - aliases:
+          DVSTG_CUSTOMER: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_CUSTOMER
+        join:
+          joinCondition: |
+            FROM {{ ref('SILVER', 'DVSTG_CUSTOMER') }} "DVSTG_CUSTOMER"
+        name: CUSTOMER
+        noLinkRefs: []
+  name: HUB_NATION
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::6
+  type: sql
+  version: 1
+type: Node

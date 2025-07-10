@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 895d817e-1776-46b1-840f-77198294ae43
+id: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
 name: NATION
 operation:
   database: ""
@@ -13,14 +13,14 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 92e69d5f-502b-460a-b85e-ede2d26b831d
-          stepCounter: 895d817e-1776-46b1-840f-77198294ae43
+          columnCounter: d4f5f44c-5ad9-4d2d-9200-9c63310c3e33
+          stepCounter: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
         config: {}
         dataType: VARCHAR(25)
         defaultValue: ""
         description: ""
         name: N_NAME
-        nullable: true
+        nullable: false
         primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
@@ -32,27 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 904e62b0-6ff7-4e58-af98-7e55325fd7da
-          stepCounter: 895d817e-1776-46b1-840f-77198294ae43
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: N_NATION_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 99e2d8b0-8b76-4021-ace4-eb64d30a5e5b
-          stepCounter: 895d817e-1776-46b1-840f-77198294ae43
+          columnCounter: b25748af-2853-4105-9e71-fe89267f21b2
+          stepCounter: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
         config: {}
         dataType: VARCHAR(152)
         defaultValue: ""
@@ -70,8 +51,27 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f8dc7519-96c5-41c2-aaef-3a8d6f255f1e
-          stepCounter: 895d817e-1776-46b1-840f-77198294ae43
+          columnCounter: eeb94a06-f076-4e80-a40a-b18db9f7b518
+          stepCounter: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: N_NATION_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b97ae71c-d19f-42c6-8c56-7f7adeeca475
+          stepCounter: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""

@@ -1,0 +1,216 @@
+{% if config.preSQL %}
+    {{ stage('Pre-SQL') }}
+    {{ config.preSQL }}
+{% endif %}
+ 
+{{ stage('Insert New Rows') }}
+{%- set loc = storageLocations | selectattr('name', "eq", node.location.name) | list | first -%}
+{%- set target_database = loc.database -%}
+{%- set target_schema = loc.name -%}
+{%- set target_node = node.name -%}
+{%- set edts_alias = "EDTS" -%}
+{%- set ldts_alias = "{{dvUtils.datavault4coalesce.config.ldts_alias}}"  -%}
+{%- if config.use_edts -%}
+{%- set dts_alias = edts_alias -%}
+{%- else -%}
+{%- set dts_alias = ldts_alias -%}
+{%- endif -%}
+ 
+{%- set start_date_alias = "START_DATE" -%}
+{%- set end_date_alias = "END_DATE" -%}
+ 
+{%- set tmp_link_node = [] -%}
+{%- set tmp_stage_node = [] -%}
+{%- for source in sources -%}
+    {%- for dct in source.dependencies -%}
+        {%- for key, value in dct.items() -%}
+            {%- if key == 'node' -%}
+                {%- if (value['name'][:6]|upper())== 'DVSTG_' -%}
+                    {%- set x = tmp_stage_node.append(value) -%}
+                {%- endif -%}              
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+
+{%- endfor -%}
+ 
+{%- set stage_node = tmp_stage_node[0] -%}
+ 
+{%- set source_cols = [] -%}
+{%- set union_cols = [] -%}
+{%- set final_cols = [] -%}
+{%- set tmp_link_hashkey_col = [] -%}
+{%- set driving_hashkey_cols = [] -%}
+{% for source in sources %}
+    {%- for col in source.columns %}
+        {%- if col.is_link_hashkey  %}
+            {%- set x = tmp_link_hashkey_col.append(col.name) -%}
+        {%- endif %}
+        {%- if col.is_driving_hashkey  %}
+            {%- set x = driving_hashkey_cols.append(col.name) -%}
+        {%- endif %}
+        {%- if col.is_driving_hashkey
+                or col.is_link_hashkey
+                or col.name == "{{dvUtils.datavault4coalesce.config.rsrc_alias}}"
+                    -%}
+            {%- set x = union_cols.append(col.name) -%}
+            {%- set y = source_cols.append(col.name) -%}
+            {%- set z = final_cols.append(col.name) -%}
+        {%- endif %}
+        {%- if col.name | string == "LDTS"
+                or col.name == "EDTS"-%}
+            {%- set x = source_cols.append(col.name) -%}
+            {%- set y = final_cols.append(col.name) -%}
+        {%- endif %}
+        {%- if col.name == start_date_alias
+                or col.name == end_date_alias
+                or col.is_relation_deleted_col -%}
+ 
+            {%- set y = final_cols.append(col.name) -%}
+        {%- endif %}
+    {%- endfor %}
+{% endfor %}
+ 
+{%- set link_hashkey_col = tmp_link_hashkey_col[0] -%}
+ 
+INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
+( {{ format_list(final_cols, prefix='"', postfix='"') }} )
+WITH
+stage_data_limited /*select from Stage*/ AS
+(
+    SELECT
+    {{ format_list(source_cols, prefix=stage_node.name ~ '."', postfix='"') }}
+    FROM {{ ref_no_link(stage_node.location.name, stage_node.name) }} as {{ stage_node.name }}
+    WHERE "{{ ldts_alias }}" >
+    (
+        SELECT COALESCE(MAX("{{ dvUtils.datavault4coalesce.config.ldts_alias }}"), {{ dvUtils.datavault4coalesce__string_to_timestamp(dvUtils.datavault4coalesce.config.timestamp_format, dvUtils.datavault4coalesce.config.beginning_of_all_times) }})
+        FROM {{ ref_no_link(node.location.name, node.name) }}
+        WHERE {{ ldts_alias }} != {{ dvUtils.datavault4coalesce__string_to_timestamp(dvUtils.datavault4coalesce.config.timestamp_format, dvUtils.datavault4coalesce.config.end_of_all_times) }}
+    )
+),
+stage as
+(
+    SELECT
+    {{ format_list(source_cols, prefix='stage_data_limited' ~ '."', postfix='"') }}
+    FROM stage_data_limited 
+    QUALIFY CASE
+                WHEN stage_data_limited."{{ link_hashkey_col }}" = LAG(stage_data_limited."{{ link_hashkey_col }}")
+                        OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage_data_limited' ~ '."', postfix='"') }}
+                        ORDER BY stage_data_limited."{{ ldts_alias }}")
+                    THEN FALSE
+                    ELSE TRUE
+            END
+),
+latest_record as
+(
+    SELECT
+    {{ format_list(source_cols, prefix='current_records' ~ '."', postfix='"') }}
+    FROM {{ ref_no_link(node.location.name, node.name) }}  as current_records
+    INNER JOIN
+    (
+        SELECT DISTINCT {{ format_list(driving_hashkey_cols, prefix='stage' ~ '."', postfix='"') }}
+        FROM stage
+    ) source_records
+        ON {{ format_multikey(driving_hashkey_cols, prefix=['current_records','source_records']) }}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='current_records' ~ '."', postfix='"') }}  ORDER BY current_records."{{ ldts_alias }}" DESC, current_records.relation_deleted asc ) = 1
+)
+,
+stage_new_records as
+(
+SELECT
+        {{ format_list(source_cols, prefix='stage' ~ '."', postfix='"') }}
+    ,   LEAD( stage."{{ ldts_alias }}") OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage' ~ '."', postfix='"') }} ORDER BY stage."{{ ldts_alias }}" ) AS src_ldts_lead
+    ,   LEAD( stage."{{ edts_alias }}") OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage' ~ '."', postfix='"') }} ORDER BY stage."{{ edts_alias }}" ) AS src_edts_lead
+    ,   LEAD( stage."{{ dts_alias }}") OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage' ~ '."', postfix='"') }} ORDER BY stage."{{ dts_alias }}" ) AS src_dts_lead
+ 
+    ,   ROW_NUMBER() OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage' ~ '."', postfix='"') }} ORDER BY stage."{{ dts_alias }}") as stage_rank
+ 
+    FROM stage
+    LEFT JOIN latest_record
+        ON {{ format_multikey(driving_hashkey_cols, prefix=['stage','latest_record']) }}
+    WHERE latest_record."{{ dts_alias }}"  IS NULL
+    OR stage."{{ dts_alias }}" > latest_record."{{ dts_alias }}"
+)
+, final AS (
+    /*
+        - disable latest record, if there is a new record, that has a differenct pk
+        - (qualify) get the first new record to take its ldts and src_eff
+    */
+    SELECT
+            {{ format_list(union_cols, prefix='   latest_record' ~ '."', postfix='"') }}
+    ,   stage_new_records."{{ ldts_alias }}" AS "{{ ldts_alias }}"
+    ,   stage_new_records."{{ edts_alias }}" AS "{{ edts_alias }}"
+    ,   latest_record."{{ dts_alias }}" AS "{{ start_date_alias }}"
+    ,   stage_new_records."{{ dts_alias }}" AS "{{ end_date_alias }}"
+    ,   TRUE AS relation_deleted
+    FROM latest_record
+    LEFT JOIN stage_new_records
+        ON {{ format_multikey(driving_hashkey_cols, prefix=['latest_record','stage_new_records']) }}
+    WHERE latest_record."{{ link_hashkey_col }}" != stage_new_records."{{ link_hashkey_col }}"
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage_new_records' ~ '."', postfix='"') }} ORDER BY stage_new_records."{{ dts_alias }}") = 1
+    UNION ALL
+    /*
+        - activate new records, that have
+        - a different pk OR
+        - doesn't exist in the eff sat OR
+        - is not the first new one (like the same pk, but there was another new intermediate change before)
+    */
+    SELECT
+            {{ format_list(union_cols, prefix='   stage_new_records' ~ '."', postfix='"') }}
+    ,   stage_new_records."{{ ldts_alias }}" AS "{{ ldts_alias }}"
+    ,   stage_new_records."{{ edts_alias }}" AS "{{ edts_alias }}"
+    ,   stage_new_records."{{ dts_alias }}" AS "{{ start_date_alias }}"
+    ,   {{ dvUtils.datavault4coalesce__string_to_timestamp(dvUtils.datavault4coalesce.config.timestamp_format, dvUtils.datavault4coalesce.config.end_of_all_times) }} AS "{{ end_date_alias }}"
+    ,   FALSE AS rel_deleted
+    FROM stage_new_records
+    LEFT JOIN latest_record
+        ON {{ format_multikey(driving_hashkey_cols, prefix=['stage_new_records','latest_record']) }}
+    WHERE latest_record."{{ link_hashkey_col }}" != stage_new_records."{{ link_hashkey_col }}"
+    OR latest_record."{{ link_hashkey_col }}" IS NULL
+    OR stage_new_records.stage_rank != 1
+ 
+    UNION ALL
+    /*
+        - disable intermediate changes (qualify desc doesn't equal 1)
+        - same where clause as for the select before
+    */
+    SELECT
+            {{ format_list(union_cols, prefix='   stage_new_records' ~ '."', postfix='"') }}
+    ,   stage_new_records.src_ldts_lead AS "{{ ldts_alias }}"
+    ,   stage_new_records.src_edts_lead AS "{{ edts_alias }}"
+    ,   stage_new_records."{{ dts_alias }}" AS "{{ start_date_alias }}"
+    ,   stage_new_records.src_dts_lead AS "{{ end_date_alias }}"
+    ,   TRUE AS rel_deleted
+    FROM stage_new_records
+    LEFT JOIN latest_record
+        ON {{ format_multikey(driving_hashkey_cols, prefix=['stage_new_records','latest_record']) }}
+    WHERE latest_record."{{ link_hashkey_col }}" != stage_new_records."{{ link_hashkey_col }}"
+        OR latest_record."{{ dts_alias }}" IS NULL
+        OR stage_new_records.stage_rank != 1
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY {{ format_list(driving_hashkey_cols, prefix='stage_new_records' ~ '."', postfix='"') }} ORDER BY stage_new_records."{{ dts_alias }}" DESC) != 1
+ 
+)
+SELECT
+    {{ format_list(final_cols, prefix='   final' ~ '."', postfix='"') }}
+FROM final
+ 
+{% if config.postSQL %}
+    {{ stage('Post-SQL') }}
+    {{ config.postSQL }}
+{% endif %}
+ 
+{% if config.testsEnabled %}
+    {% for test in node.tests %}
+        {% if test.runOrder == 'After' %}
+            {{ test_stage(test.name, test.continueOnFailure) }}
+            {{ test.templateString }}
+        {% endif %}
+    {% endfor %}
+ 
+    {% for column in columns %}
+        {% for test in column.tests %}
+            {{ test_stage(column.name + ": " + test.name) }}
+            {{ test.templateString }}
+        {% endfor %}
+    {% endfor %}
+{% endif %}

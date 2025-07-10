@@ -1,0 +1,100 @@
+fileVersion: 1
+id: 0e391c6d-6937-4a63-878e-a6203e502858
+name: HUB_ORDERS
+operation:
+  config:
+    disable_hwm: true
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Orders data as defined by TPC-H
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f00c6c3-0bd5-4463-a8e2-08658dbd2d01
+          stepCounter: 0e391c6d-6937-4a63-878e-a6203e502858
+        config:
+          is_Hub_hk: true
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9bc511c9-b3d1-4a49-ab9c-96b081b81bf7
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28d3566c-c394-4247-9856-c11e0dad31dc
+          stepCounter: 0e391c6d-6937-4a63-878e-a6203e502858
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: O_ORDER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26bce2dc-c52f-4f22-83e3-1a43f408d6bc
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9fbf279d-3ccb-45be-bf3e-090ef60ac163
+          stepCounter: 0e391c6d-6937-4a63-878e-a6203e502858
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        hashDetails: null
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77face16-3ba1-4339-86ed-806760c8f7f6
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6d2ed53f-e4fe-4a0f-a057-59d3fc79fc18
+          stepCounter: 0e391c6d-6937-4a63-878e-a6203e502858
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        hashDetails: null
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bf6c00a-f52f-428a-a186-7eea03dd12ca
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DVSTG_ORDERS: 7a08c091-19a8-4c09-86e7-097c53324a19
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_ORDERS
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DVSTG_ORDERS') }} "DVSTG_ORDERS"
+        name: HUB_ORDERS
+        noLinkRefs: []
+  name: HUB_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::6
+  type: sql
+  version: 1
+type: Node

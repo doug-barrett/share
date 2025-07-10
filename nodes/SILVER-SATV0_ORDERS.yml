@@ -1,0 +1,236 @@
+fileVersion: 1
+id: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+name: SATV0_ORDERS
+operation:
+  config:
+    disable_hwm: false
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Orders data as defined by TPC-H
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2afa3e76-f97d-4fe9-bdf1-f41281ca7fdc
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config:
+          is_hk: true
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9bc511c9-b3d1-4a49-ab9c-96b081b81bf7
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 787012c5-a73c-4b3d-b6a2-a6fddaae0e1c
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: O_ORDER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 26bce2dc-c52f-4f22-83e3-1a43f408d6bc
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ee64046-ed5e-46ec-8b70-3d3353d902b9
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: O_CUST_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 95bbf67c-5b01-49ab-bd16-e05cffce5ba5
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 705e30e6-8027-4aa8-9237-03291cbfa691
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        hashDetails: null
+        name: O_ORDERSTATUS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 75b9fa01-129f-4efb-8ad3-667197ddc43a
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90241cbc-ee08-47c5-aea0-cd88ab0eef26
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        hashDetails: null
+        name: O_TOTALPRICE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eebc5d5c-7c10-4900-8614-02a5c4956fc9
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62076f7e-5ef6-461e-8e72-dbc878ab4349
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: DATE
+        description: ""
+        hashDetails: null
+        name: O_ORDERDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d8f03654-a522-4357-a664-78d5c7153afb
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2453ad4-0b77-45b2-a25d-6b18b42164df
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        hashDetails: null
+        name: O_ORDERPRIORITY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4654bee-073e-40f8-a12d-4450698a463a
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86c250fe-bb01-4396-90bf-cca9ada4de63
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        hashDetails: null
+        name: O_CLERK
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8815f256-72e6-49c5-a4bf-ffb94cb249f9
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39241607-5382-43d0-bb56-b5e309390618
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: O_SHIPPRIORITY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eb472e82-9c2a-4cce-a6a3-7cb767b05ba8
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8991e456-b1ef-40f4-9a2b-90c7c6a0056a
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: VARCHAR(79)
+        description: ""
+        hashDetails: null
+        name: O_COMMENT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0bcca88c-c3cc-4bbc-8fa0-0eccf01b8e25
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07478a33-e551-4f69-b164-b2cd8ed5783d
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        hashDetails: null
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77face16-3ba1-4339-86ed-806760c8f7f6
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48fe8b96-2b74-4c23-8bab-887d074cf304
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        hashDetails: null
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6bf6c00a-f52f-428a-a186-7eea03dd12ca
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a22976a-9cd4-4f58-a755-000ec19fae8e
+          stepCounter: 30c0b8a5-c16d-47ee-a0fc-faefa1c3b212
+        config:
+          is_hd: true
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: S_ORDER_HASH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 782edcfe-c842-4368-8649-72dcde52d2bc
+                stepCounter: 7a08c091-19a8-4c09-86e7-097c53324a19
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DVSTG_ORDERS: 7a08c091-19a8-4c09-86e7-097c53324a19
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_ORDERS
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DVSTG_ORDERS') }} "DVSTG_ORDERS"
+        name: SATV0_ORDERS
+        noLinkRefs: []
+  name: SATV0_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::8
+  type: sql
+  version: 1
+type: Node

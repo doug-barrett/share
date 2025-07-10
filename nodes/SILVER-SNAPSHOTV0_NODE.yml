@@ -1,0 +1,208 @@
+fileVersion: 1
+id: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+name: SNAPSHOTV0_NODE
+operation:
+  config:
+    input_daily_snapshot_time: "07:00:00"
+    input_snapshot_end_date: "2025-12-31"
+    input_snapshot_start_date: "2020-01-01"
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f88d7bf-21e4-44f5-ad80-9fcf17c522b2
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: SDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_sdts: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c686c9f1-dec9-401a-a91a-f67146732234
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: FORCE_ACTIVE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_force_active: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ad4422c-ba70-4afa-b169-3c164d2dec0f
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        name: REPLACEMENT_SDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_replacement_sdts: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b4dfc36-7f6c-40fd-a8f8-0347f0c24372
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: STRING
+        defaultValue: ""
+        description: ""
+        name: CAPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_caption: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 26a03264-4885-4f3d-9a8f-d7c359223617
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_HOURLY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_hourly: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5cf51bf-b5a7-486a-aea9-2abe5045d396
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_DAILY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_daily: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2928a574-0194-45b6-b084-eabff1084b97
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_BEGINNING_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_beginning_of_week: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0bf7d8f-3fd6-479e-94b6-35af4207b194
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_BEGINNING_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_beginning_of_month: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d7ad0707-9a4b-4c10-8987-0c5e76de41fb
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_BEGINNING_OF_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_beginning_of_quarter: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 45b70d58-26ac-42c3-aeaa-beb777b478a7
+          stepCounter: 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        name: IS_BEGINNING_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        system_is_beginning_of_year: true
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: SNAPSHOTV0_NODE
+        noLinkRefs: []
+  name: SNAPSHOTV0_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::13
+  type: sql
+  version: 1
+type: Node

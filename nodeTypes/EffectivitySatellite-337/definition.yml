@@ -1,0 +1,70 @@
+fileVersion: 1
+id: "337"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |
+    capitalized: 'Effectivity_Satellite'
+    short: 'EFF_SAT'
+    plural: 'Effectivity_Satellites'
+    tagColor: 'Pink'
+
+    config:
+    - groupName: Options
+      items:
+      - displayName: Enable Tests
+        attributeName: testsEnabled
+        type: toggleButton
+        default: true
+        
+    - groupName: Data Vault
+      items:
+      - displayName: Link_Hashkey Column
+        type: columnSelector
+        attributeName: is_link_hashkey
+        isRequired: true
+
+      - displayName: Driving_Hashkey Column
+        type: columnSelector
+        attributeName: is_driving_hashkey
+        isRequired: true
+         
+      - displayName: Use edts
+        attributeName: use_edts
+        type: toggleButton
+        default: false
+
+    - groupName: Pre/Post SQL
+      items:
+      - displayName: Pre-SQL
+        attributeName: preSQL
+        type: textBox
+        isRequired: false
+
+      - displayName: Post-SQL
+        attributeName: postSQL
+        type: textBox
+        isRequired: false
+
+    systemColumns:
+    - displayName: "START_DATE"
+      transform: ''
+      dataType: TIMESTAMP_TZ(9)
+      placement: end
+      attributeName: is_start_date_col
+      description: "The date when the relationship startet"
+    - displayName: "END_DATE"
+      transform: ''
+      dataType: TIMESTAMP_TZ(9)
+      placement: end
+      attributeName: is_end_date_col
+      description: "The date when the relationship ended"
+    - displayName: "RELATION_DELETED"
+      transform: ''
+      dataType: BOOLEAN
+      placement: end
+      attributeName: is_relation_deleted_col
+      description: "Has the relation been deleted"
+name: Effectivity Satellite
+type: NodeType

@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 35699026-dcc8-49d7-8669-e490f2e8ede2
+id: 7347414d-0a7d-4aec-837c-f5ea7585e71f
 name: STG_SUPPLIER
 operation:
   config:
@@ -17,38 +17,12 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - appliedColumnTests: {}
+      - appliedColumnTests:
+          hasNull: true
+          isDistinct: true
         columnReference:
-          columnCounter: ccf1ff74-5eab-447c-9e8d-ca3a7608475f
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
-        config: {}
-        dataType: VARCHAR(25)
-        description: ""
-        name: S_NAME
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 049808b3-d163-4c48-82cc-ac6fe10cedf0
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1639f237-50bb-4ffd-b029-ed4c416f1fc1
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: S_NATION_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 9241555a-dfb4-40e3-9c90-0bf581b2d657
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 3d26bda4-3092-4ed5-b1ce-1b31b4d885c0
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
+          columnCounter: d1325054-8ada-4612-85dd-add499b3ead4
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
         config: {}
         dataType: NUMBER(38,0)
         description: ""
@@ -56,13 +30,63 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f016a4db-5346-4335-9c0e-7d40f7de1b1d
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+              - columnCounter: 072c5ca8-1553-449a-aefd-0bbdc3c87e4a
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
             transform: ""
-      - appliedColumnTests: {}
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
         columnReference:
-          columnCounter: c4158643-a6fe-42d2-8ae6-6426425c1922
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
+          columnCounter: 5d4647f6-929f-47d2-946a-d388b2a26242
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: S_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e4df8bb0-2122-48e2-9b7f-620d778f8a20
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
+            transform: ""
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
+        columnReference:
+          columnCounter: 953efd70-c467-4af6-b187-d6d6f05f27f3
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: S_NATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a9f85c5b-0566-4f13-b4bd-f927d7cc6c47
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
+            transform: ""
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
+        columnReference:
+          columnCounter: 9cd7826b-302c-4fee-ae91-07ce7195bd62
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: NATION
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4f5f44c-5ad9-4d2d-9200-9c63310c3e33
+                stepCounter: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
+            transform: NVL("NATION"."N_NAME", '')
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
+        columnReference:
+          columnCounter: 611da333-cf73-490b-b61a-7db3afdbaf63
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
         config: {}
         dataType: NUMBER(12,2)
         description: ""
@@ -70,13 +94,15 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: e453c1b6-2a1c-4f4c-a5d6-2d84e4b6d825
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+              - columnCounter: f4aca299-75ee-4214-8e12-9af881599d35
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
             transform: ""
-      - appliedColumnTests: {}
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
         columnReference:
-          columnCounter: 2ade0172-f768-4f3a-9442-be50433f4d15
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
+          columnCounter: 97908229-61ed-4114-b9b9-e162d8854719
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
         config: {}
         dataType: VARCHAR(40)
         description: ""
@@ -84,13 +110,15 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 658da523-3df7-4988-b1d8-1bd823f8a640
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+              - columnCounter: 8b0d5877-7792-41a3-aef0-485b394da706
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
             transform: ""
-      - appliedColumnTests: {}
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
         columnReference:
-          columnCounter: 1c07435f-aa1e-437f-b11b-30887632ccf7
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
+          columnCounter: cc97cee5-dc35-4324-b05f-e3decc3b002b
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
         config: {}
         dataType: VARCHAR(101)
         description: ""
@@ -98,13 +126,15 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 86ceed94-3b39-46eb-8c1a-da03cdc85c35
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+              - columnCounter: 8a0f82b5-5519-48e0-9739-227da2661242
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
             transform: ""
-      - appliedColumnTests: {}
+      - appliedColumnTests:
+          hasNull: false
+          isDistinct: false
         columnReference:
-          columnCounter: 2ada8b48-2ab1-4096-9a95-a5fc2fb4f6c9
-          stepCounter: 35699026-dcc8-49d7-8669-e490f2e8ede2
+          columnCounter: 96862578-c478-4268-b669-84beb7e9a4c1
+          stepCounter: 7347414d-0a7d-4aec-837c-f5ea7585e71f
         config: {}
         dataType: VARCHAR(15)
         description: ""
@@ -112,20 +142,29 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c680b9f5-0056-4a9b-83e8-e1b43b11f870
-                stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+              - columnCounter: 733c6a9b-a3b5-4076-9ea8-c6e37d6e8602
+                stepCounter: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
             transform: ""
     cteString: ""
-    enabledColumnTestIDs: []
+    enabledColumnTestIDs:
+      - hasNull
+      - isDistinct
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          NATION: b23502d3-0281-4eaa-8c4f-75fee16fd6dc
+          SUPPLIER: 78de208b-474e-4c9c-b4f2-81b1f8eea8da
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: BRONZE
+            nodeName: NATION
+          - locationName: BRONZE
             nodeName: SUPPLIER
         join:
-          joinCondition: FROM {{ ref('BRONZE', 'SUPPLIER') }} "SUPPLIER"
+          joinCondition: |-
+            FROM {{ ref('BRONZE', 'SUPPLIER') }} "SUPPLIER"
+            LEFT JOIN {{ ref('BRONZE', 'NATION') }} "NATION"
+            ON "SUPPLIER"."S_NATION_ID" = "NATION"."N_NATION_ID"
         name: STG_SUPPLIER
         noLinkRefs: []
   name: STG_SUPPLIER

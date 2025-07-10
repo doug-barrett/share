@@ -1,0 +1,48 @@
+{% if config.preSQL %}
+  {{ stage('Pre-SQL') }}
+  {{ config.preSQL }}
+{% endif %}
+
+
+{%- set hashkey_column = config.is_hk.name -%}
+
+{{ stage('Insert New Rows') }}
+INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
+(
+    "{{ hashkey_column }}",
+    "{{ datavault4coalesce.config.rsrc_alias }}",
+    "{{ datavault4coalesce.config.ldts_alias }}",
+    "ACTIVE"
+)
+SELECT  NVL(SRC.HKEY, TGT.HKEY) HKEY, 
+        NVL(SRC.RSRC, TGT.RSRC) RSRC, 
+        NVL(SRC.LDTS, TGT.LDTS) LDTS, 
+        NVL(SRC.ACTIVE, TGT.ACTIVE) ACTIVE 
+FROM 
+        (SELECT "{{ hashkey_column }}" HKEY,
+                "{{ datavault4coalesce.config.rsrc_alias }}" RSRC,
+                MIN("{{ datavault4coalesce.config.ldts_alias }}") LDTS,
+                TRUE ACTIVE
+        FROM {{ ref_raw(sources[0].dependencies[0].node.location.name,sources[0].dependencies[0].node.name) }} "{{ sources[0].dependencies[0].node.name }}"
+        GROUP BY "{{ hashkey_column }}",
+                "{{ datavault4coalesce.config.rsrc_alias }}") SRC 
+
+FULL JOIN 
+        (SELECT HKEY, RSRC, LDTS, FALSE ACTIVE
+        FROM 
+                (SELECT "{{ hashkey_column }}" HKEY,
+                        "{{ datavault4coalesce.config.rsrc_alias }}" RSRC,
+                        SYSDATE() LDTS,
+                        ACTIVE    LAST_ACTIVE
+                FROM {{ this }} 
+                QUALIFY 1 = ROW_NUMBER() OVER (PARTITION BY HKEY ORDER BY LDTS DESC))
+        WHERE LAST_ACTIVE = TRUE
+        ) TGT
+ON      SRC.HKEY = TGT.HKEY
+WHERE   SRC.HKEY IS NULL
+OR      TGT.HKEY IS NULL
+
+{% if config.postSQL %}
+  {{ stage('Post-SQL') }}
+  {{ config.postSQL }}
+{% endif %}

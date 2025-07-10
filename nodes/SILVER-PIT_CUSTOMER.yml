@@ -1,0 +1,172 @@
+fileVersion: 1
+id: d5f4ab15-3cda-4442-9202-21a06eac7b43
+name: PIT_CUSTOMER
+operation:
+  config:
+    cleanup_pit: true
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d2c04d9e-25ab-4a4f-ae8b-9646db62eba1
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config:
+          is_dimension_key: true
+        dataType: STRING
+        defaultValue: ""
+        description: ""
+        hashDetails:
+          hashAlgorithm: SHA1
+        hashedColumns:
+          - columnCounter: b4f3f764-e38c-49fe-a2f5-11422255fdcc
+            stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+          - columnCounter: 3606dce9-a296-4f2b-a721-a4f15c27a90d
+            stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        name: D_CUSTOMER_KEY
+        nullable: true
+        sourceColumnReferences: []
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b4f3f764-e38c-49fe-a2f5-11422255fdcc
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: STRING
+        description: ""
+        name: H_CUSTOMER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3509298-9c57-4086-b739-2bb0ed023594
+                stepCounter: b1fb6c5e-a3ae-4384-a5ae-9e9b6126da54
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0eeedb4d-6fb7-426f-ac7e-719fcc1026be
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUST_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82f36fd8-1c37-454c-9d87-e8a64b86b743
+                stepCounter: b1fb6c5e-a3ae-4384-a5ae-9e9b6126da54
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3606dce9-a296-4f2b-a721-a4f15c27a90d
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 30025e0a-2476-46f3-82a1-6889a16c3280
+                stepCounter: 1202d684-ec3a-4b6e-b870-821ebdcd29bd
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9cd10bd-a52a-4214-a2a8-81043a64fb7c
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: STRING
+        description: ""
+        name: H_CUSTOMER_HROC_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59669c5a-75bd-4dc9-aef3-d9fda5f2304b
+                stepCounter: 2349b51a-4c60-4982-8cf0-e5735f269185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 330d3021-74f8-4c4c-9636-a0782e428028
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: DATETIME
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        name: SATV1_CUSTOMER_HROC_LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3d74396e-41f5-45ce-bf05-d1684ae11961
+                stepCounter: 2349b51a-4c60-4982-8cf0-e5735f269185
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 21206e76-465c-48be-ab2b-d50ac147cac6
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: STRING
+        description: ""
+        name: H_CUSTOMER_LROC_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c35b991c-1236-432f-93f8-854a7fc0f8b0
+                stepCounter: 890c2a00-66c7-4895-9a0d-b0d37818e0d0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 11aade46-971e-4b95-90b2-ebca9a1b242a
+          stepCounter: d5f4ab15-3cda-4442-9202-21a06eac7b43
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        name: SATV1_CUSTOMER_LROC_LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f8af07a2-7605-46ef-80ef-8de031c9ea2c
+                stepCounter: 890c2a00-66c7-4895-9a0d-b0d37818e0d0
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          HUB_CUSTOMER: b1fb6c5e-a3ae-4384-a5ae-9e9b6126da54
+          SNAPSHOTV1_NODE: 1202d684-ec3a-4b6e-b870-821ebdcd29bd
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: HUB_CUSTOMER
+          - locationName: SILVER
+            nodeName: SATV1_CUSTOMER_HROC
+          - locationName: SILVER
+            nodeName: SATV1_CUSTOMER_LROC
+          - locationName: SILVER
+            nodeName: SNAPSHOTV1_NODE
+        join:
+          joinCondition: |-
+
+            FROM {{ ref('SILVER', 'HUB_CUSTOMER') }} "HUB_CUSTOMER"
+            INNER JOIN {{ ref('SILVER', 'SNAPSHOTV1_NODE') }} "SNAPSHOTV1_NODE"
+            ON "HUB_CUSTOMER"./*COLUMN*/ = "SNAPSHOTV1_NODE"./*COLUMN*/
+            INNER JOIN {{ ref('SILVER', 'SATV1_CUSTOMER_HROC') }} "SATV1_CUSTOMER_HROC"
+            ON "HUB_CUSTOMER"./*COLUMN*/ = "SATV1_CUSTOMER_HROC"./*COLUMN*/
+            INNER JOIN {{ ref('SILVER', 'SATV1_CUSTOMER_LROC') }} "SATV1_CUSTOMER_LROC"
+            ON "HUB_CUSTOMER"./*COLUMN*/ = "SATV1_CUSTOMER_LROC"./*COLUMN*/
+        name: PIT_CUSTOMER
+        noLinkRefs: []
+  name: PIT_CUSTOMER
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::12
+  type: sql
+  version: 1
+type: Node

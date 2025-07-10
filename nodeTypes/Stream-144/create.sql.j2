@@ -1,0 +1,15 @@
+{% if desiredState == undefined %}
+
+  {{ stage('Drop Stream') }}
+  DROP STREAM IF EXISTS {{ ref_no_link(currentState.node.location.name, currentState.node.name) }}
+
+{% elif currentState == undefined %}
+
+  {{ stage('Create Stream') }}
+  CREATE STREAM IF NOT EXISTS {{ ref_no_link(desiredState.node.location.name, desiredState.node.name )  }}
+  ON TABLE {{ ref(desiredState.sources[0].dependencies[0].node.location.name, desiredState.sources[0].dependencies[0].node.name) }}
+  APPEND_ONLY = {% if desiredState.config.appendOnly is true %} TRUE {%- else -%} FALSE {% endif %} 
+  SHOW_INITIAL_ROWS = {% if desiredState.config.initialRows is true %} TRUE {%- else -%} FALSE {% endif %} 
+  COMMENT = 'CDC Stream on {{ this }}'
+
+{% endif %}

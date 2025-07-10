@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "102"
+includeSelector: "+{ location: DWH name: HUB_* } OR +{ location: DWH name: LINK_* } OR +{ location: DWH name: SATV0_* } OR +{ location: DWH name: FCT_LINEITEM_ORDER }"
+name: Process DV
+type: Job

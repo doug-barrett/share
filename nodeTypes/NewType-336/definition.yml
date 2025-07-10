@@ -1,0 +1,13 @@
+fileVersion: 1
+id: "336"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: New Type
+    short: NEW
+    tagColor: gray
+    plural: New Types
+name: New Type
+type: NodeType

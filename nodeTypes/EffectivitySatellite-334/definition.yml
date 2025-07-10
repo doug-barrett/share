@@ -1,0 +1,41 @@
+fileVersion: 1
+id: "334"
+isDisabled: true
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: 'EFFECTIVITY SATELLITE'
+    short: 'EFF'
+    plural: 'EFF SATELLITES'
+    tagColor: 'gold'
+
+    config:
+    - groupName: Data Vault
+      items:
+      - displayName: Hashkey Column
+        type: columnDropdownSelector
+        attributeName: is_hk
+        isRequired: false
+
+    - groupName: Pre/Post SQL
+      items:
+      - displayName: Pre-SQL
+        attributeName: preSQL
+        type: textBox
+        isRequired: false
+
+      - displayName: Post-SQL
+        attributeName: postSQL
+        type: textBox
+        isRequired: false
+
+    systemColumns:
+    - displayName: "ACTIVE"
+      transform: ""
+      dataType: BOOLEAN
+      placement: end
+      attributeName: is_stg    
+      description: ""
+name: Effectivity Satellite
+type: NodeType

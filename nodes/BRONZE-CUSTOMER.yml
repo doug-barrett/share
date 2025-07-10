@@ -1,10 +1,10 @@
 fileVersion: 1
-id: d3e68936-faa4-43df-9114-5383b9177662
+id: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
 name: CUSTOMER
 operation:
   database: ""
   deployEnabled: true
-  description: ""
+  description: Customer data as defined by TPC-H
   locationName: BRONZE
   metadata:
     columns:
@@ -13,8 +13,98 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: cff8d32f-7617-4b56-8080-60927c341461
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
+          columnCounter: 3d72d9a8-c907-4ac5-988b-6519ddd43b75
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: NUMBER(12,2)
+        defaultValue: ""
+        description: ""
+        name: C_ACCTBAL
+        nullable: false
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d6adb05-3bdf-493f-9b13-2d3b3bdac711
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: VARCHAR(40)
+        defaultValue: ""
+        description: ""
+        name: C_ADDRESS
+        nullable: false
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f7e6fd1-bd40-4c70-8b74-fec571d0bd41
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: VARCHAR(117)
+        defaultValue: ""
+        description: ""
+        name: C_COMMENT
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 85c22486-dd2b-4ea3-bad6-d2b5df4d6639
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: C_MKTSEGMENT
+        nullable: true
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2f70c817-6360-4e6d-8f61-ee034a170f3f
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: VARCHAR(25)
+        defaultValue: ""
+        description: ""
+        name: C_NAME
+        nullable: false
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d404fdd-1285-40d8-951d-5ab82b32f34d
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+        config: {}
+        dataType: VARCHAR(15)
+        defaultValue: ""
+        description: ""
+        name: C_PHONE
+        nullable: false
+        primaryKey: false
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 60a02a33-daed-48fe-893b-abf74f9330b5
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
@@ -32,127 +122,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6f546d84-8b7f-4596-9558-9936c06b7239
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
+          columnCounter: 3ff354df-f9f9-4fde-bcd4-2750b6412995
+          stepCounter: 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
         config: {}
         dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
         name: C_NATION_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 4afa8530-8477-4397-a6d9-9fbc09bf73dd
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: NUMBER(12,2)
-        defaultValue: ""
-        description: ""
-        name: C_ACCTBAL
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e69c6a8f-ea7e-4491-bde2-b8dedebe2ff6
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: VARCHAR(40)
-        defaultValue: ""
-        description: ""
-        name: C_ADDRESS
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: bed74568-4a8f-46ea-a59f-6931538d8681
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: VARCHAR(117)
-        defaultValue: ""
-        description: ""
-        name: C_COMMENT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: d1b7ee9a-74ed-4886-a449-bc05d521cbb9
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: VARCHAR(10)
-        defaultValue: ""
-        description: ""
-        name: C_MKTSEGMENT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: a3d1c8de-8af2-4f55-bed4-92f7a7e20023
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: VARCHAR(25)
-        defaultValue: ""
-        description: ""
-        name: C_NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 3f036714-3f95-4efe-811d-557d65fc5425
-          stepCounter: d3e68936-faa4-43df-9114-5383b9177662
-        config: {}
-        dataType: VARCHAR(15)
-        defaultValue: ""
-        description: ""
-        name: C_PHONE
         nullable: true
         primaryKey: false
         sourceColumnReferences:

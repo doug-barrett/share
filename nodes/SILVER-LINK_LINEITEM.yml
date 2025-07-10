@@ -1,0 +1,204 @@
+fileVersion: 1
+id: 06ad6159-0d57-43f3-8560-441e39262483
+name: LINK_LINEITEM
+operation:
+  config:
+    disable_hwm: true
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Lineitem data as defined by TPC-H
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f7d4f05-83ef-4add-8c7f-b7cfbb2f0a75
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config:
+          is_Link_hk: true
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: L_LINEITEM_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 306033af-3558-4357-9dcc-9ff653dd953b
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 22e19247-4b67-4f43-b6c2-cb82638cab91
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_LINEITEM_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39904ef8-a3fe-43e5-976c-9e241b4dbd19
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e73ca371-3f95-4f87-85dd-ab435cad85ac
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: STRING
+        description: ""
+        name: H_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b6a8f416-9199-4826-9397-1ca2920676ec
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b69ef6c9-63b8-4805-9c15-3ae68a4508dc
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_SUPPLIER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0aa3b82b-a8a0-4811-a518-000bcf292a70
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f67416b-ae45-4a78-bdff-cb2c73068a46
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: STRING
+        description: ""
+        hashDetails: null
+        name: H_PART_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 497a0205-d19e-4f3e-8a87-ed77ab29a324
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 148fc36c-eebe-44fd-89c5-bbb31e986d85
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        hashDetails: null
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 315017e0-ef95-4fe6-b58f-bc8ad885edb9
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41c9ba12-217f-4e9b-b257-03c86778724c
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        hashDetails: null
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0d9c4a37-c982-4c3f-8dc4-c63366aa6df8
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6582cd6-5513-4ce8-a249-2813db0a34e4
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: L_ORDER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e19870bd-d04f-47c2-b4fc-74627b3e41b1
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c345a1db-140c-4e9b-9080-9cdc9a9c89b3
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: L_LINENUMBER
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17b2dec0-44e2-4b6f-b7fb-a4f2a81ac848
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f948e9a4-61f2-44df-b4ec-f85b68bd72a1
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: L_PART_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b74544b1-1f28-491a-9240-71ca656066d3
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a7b965b-4ed3-4690-8f5c-57daa08ffb59
+          stepCounter: 06ad6159-0d57-43f3-8560-441e39262483
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        hashDetails: null
+        name: L_SUPPLIER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3bf73e92-e5cf-4500-89b3-5ca9886ece12
+                stepCounter: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DVSTG_LINEITEM: 893aa0af-b7d5-4e6f-b3e1-660fa8b66beb
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_LINEITEM
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DVSTG_LINEITEM') }} "DVSTG_LINEITEM"
+        name: LINK_LINEITEM
+        noLinkRefs: []
+  name: LINK_LINEITEM
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::7
+  type: sql
+  version: 1
+type: Node

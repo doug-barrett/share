@@ -1,0 +1,83 @@
+config:
+  entities:
+    nodeTypes:
+      "12":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "13":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "14":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "18":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "21":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "23":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "24":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "27":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "4":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "6":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "7":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "8":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+      "9":
+        defaultStorageLocation: SILVER
+        isDisabled: false
+  packageVariables: |-
+    {#------------------------------------------------------------------------------------------------------#}
+    {#-- Global variables of datavault4coalesce                                                           --#}
+    {#--                                                                                                  --#}
+    {#-- The following variables can be customized to implement your own DV standard definition.          --#}
+    {#-- They will be used in the macros found below.                                                     --#}
+    {#-- Refer to official wiki: https://github.com/ScalefreeCOM/datavault4coalesce/wiki/Global-variables --#}
+    {#------------------------------------------------------------------------------------------------------#}
+    {%- set datavault4coalesce = namespace(
+         config = {
+         "ldts_alias": "LDTS",
+         "rsrc_alias": "RSRC", 
+         "ledts_alias": "LEDTS",
+         "stg_alias": "STG", 
+         "snapshot_trigger_column": "IS_ACTIVE",
+         "use_object_name_prefix": TRUE,
+         "sdts_alias": "SDTS",
+         "is_current_col_alias": "IS_CURRENT", 
+         "hash": "MD5", 
+         "hash_datatype": "STRING", 
+         "hash_input_case_sensitive": "TRUE",
+         "hash_passthrough_input_transformations": "TRUE",
+         "beginning_of_all_times": "0001-01-01T00:00:01",
+         "end_of_all_times": "8888-12-31T23:59:59",
+         "timestamp_format": "YYYY-MM-DDTHH24:MI:SS", 
+         "default_unknown_rsrc": "SYSTEM", 
+         "default_error_rsrc": "ERROR", 
+         "rsrc_default_dtype": "STRING", 
+         "stg_default_dtype": "STRING", 
+         "error_value__STRING": "'(error)'", 
+         "error_value_alt__STRING": "'e'", 
+         "unknown_value__STRING": "'(unknown)'",
+         "unknown_value_alt__STRING": "'u'"
+         }
+    ) -%}
+fileVersion: 1
+id: "@coalesce/data-vault-by-scalefree"
+name: DV2
+packageID: "@coalesce/data-vault-by-scalefree"
+releaseID: 213afc7e-5153-4511-bee6-a996f3fe1e5d
+type: Package

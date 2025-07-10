@@ -1,0 +1,125 @@
+fileVersion: 1
+id: 0d398541-c834-4693-9167-0b08435ad8d9
+name: SATV0_CUSTOMER_HROC
+operation:
+  config:
+    disable_hwm: false
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Customer data as defined by TPC-H
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a87f9e9-8cd1-4992-a308-480eac90b5e2
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config:
+          is_hk: true
+        dataType: STRING
+        description: ""
+        name: H_CUSTOMER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4e4fae30-5521-46c8-90c7-cc15f1ebaed6
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fe3ac15-12a2-4118-aa6e-1c50e0e66adc
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: C_ACCTBAL
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a939a58-1773-463e-8190-b0b06d9d3ed5
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 217e1ea3-d0e7-4286-924a-c5245bc9737c
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: C_MKTSEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: debf1df3-4bb0-47f4-955e-009deb9735d9
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e7e3be96-8fec-4fd4-9762-e8452e949b5e
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3eed9b39-1588-4a51-a1fb-7f560ac416f4
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 56fff68f-6d25-4e30-94ce-c8751df2962a
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config: {}
+        dataType: DATETIME
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7312d6a3-7c9c-4ee3-99cd-93b61233b9b5
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0569482e-c598-4c02-9719-0791fc522e0c
+          stepCounter: 0d398541-c834-4693-9167-0b08435ad8d9
+        config:
+          is_hd: true
+        dataType: STRING
+        description: ""
+        name: S_CUSTOMER_HROC_HASH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 04ce386b-21d6-49ff-8212-a25d36381147
+                stepCounter: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DVSTG_CUSTOMER: 66d3852e-76f1-4208-9900-a9f9d3f34b49
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DVSTG_CUSTOMER
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DVSTG_CUSTOMER') }} "DVSTG_CUSTOMER"
+        name: SATV0_CUSTOMER_HROC
+        noLinkRefs: []
+  name: SATV0_CUSTOMER_HROC
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::8
+  type: sql
+  version: 1
+type: Node

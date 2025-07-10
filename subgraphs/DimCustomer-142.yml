@@ -1,0 +1,19 @@
+fileVersion: 1
+id: "142"
+name: Dim Customer
+steps:
+  - 0d398541-c834-4693-9167-0b08435ad8d9
+  - 1202d684-ec3a-4b6e-b870-821ebdcd29bd
+  - 2349b51a-4c60-4982-8cf0-e5735f269185
+  - 2dc8b7a1-cf9e-42c2-8824-e7537ca09fc6
+  - 45b9d9c5-46fd-4be4-bd69-289032986d43
+  - 66d3852e-76f1-4208-9900-a9f9d3f34b49
+  - 72f26043-57fe-4ec4-8d18-e141091579a0
+  - 7a08c091-19a8-4c09-86e7-097c53324a19
+  - 87e9a2a4-c205-4eb8-903e-ffcbb85faef4
+  - 890c2a00-66c7-4895-9a0d-b0d37818e0d0
+  - 8ed0de94-e8dc-46fc-add9-e5cb193f048b
+  - b1fb6c5e-a3ae-4384-a5ae-9e9b6126da54
+  - b8066f95-d0f8-410c-803d-59aa9c4fef91
+  - d5f4ab15-3cda-4442-9202-21a06eac7b43
+type: Subgraph

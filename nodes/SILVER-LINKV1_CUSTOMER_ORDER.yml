@@ -1,0 +1,197 @@
+fileVersion: 1
+id: a17d56eb-67b5-4123-b803-c8b74d63acf8
+name: LINKV1_CUSTOMER_ORDER
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+  database: ""
+  deployEnabled: true
+  description: Orders data as defined by TPC-H
+  isMultisource: false
+  locationName: SILVER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b81c844-3b01-4f20-879a-eaee56d860be
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: STRING
+        description: ""
+        name: L_ORDER_CUSTOMER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9760aefa-3bfb-4d3c-83a1-594ac32993a4
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 474e956d-4745-41f4-af2a-6ab31ea5b88f
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: STRING
+        description: ""
+        name: H_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c7a431e-29f2-4c36-ab02-54d3f71166fb
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 96f07abd-b4d0-4519-9a41-67216a838c4e
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config:
+          is_hk: true
+        dataType: STRING
+        description: ""
+        name: H_CUSTOMER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dad99dc9-e152-4956-9bba-54fad550f428
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ccb7107-f044-4dcb-abc7-1f91dbea7119
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_ORDER_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7b86371-469a-4983-ba79-2a31711fdee9
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7aee7791-20d5-4f58-a518-fbd1ca5f6c18
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_CUST_ID
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 237adcd0-61ab-4b75-9259-44d64951c3dd
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 685dbe53-b031-4adb-aa12-1151a0a834f7
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: TIMESTAMP
+        description: The Load Date Timestamp (LDTS) describes when this data first arrived in the Data Warehouse.
+        name: LDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 21d3b59a-5e5d-4e19-970b-c9cafc130acc
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58507588-3c1c-434d-98e2-ee907434a809
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: STRING
+        description: The Record Source (RSRC) describes the source of this data.
+        name: RSRC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41c73656-b8d5-418e-beec-85c247c8c5fb
+                stepCounter: f8dca734-08b7-479c-957a-47e4b214f5ea
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5446a1bf-920a-4ca7-8256-3da7fae2d486
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        is_system_ledts: true
+        name: LEDTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              COALESCE(LEAD("{{ datavault4coalesce.config.ldts_alias }}" - INTERVAL '1 MICROSECOND') 
+              OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+              ORDER BY "{{ datavault4coalesce.config.ldts_alias }}"), {{ datavault4coalesce__string_to_timestamp(datavault4coalesce.config.timestamp_format, datavault4coalesce.config.end_of_all_times) }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 529e3266-3e14-4eff-bda8-434b3c982bda
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: BOOLEAN
+        defaultValue: ""
+        description: ""
+        is_system_current_col: true
+        name: IS_CURRENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |-
+              CASE 
+                WHEN 
+                  LEAD("{{ datavault4coalesce.config.ldts_alias }}" - INTERVAL '1 MICROSECOND') 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "{{ datavault4coalesce.config.ldts_alias }}") IS NULL 
+                THEN TRUE 
+                ELSE FALSE 
+              END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dd9fad18-2b66-45a9-be5b-e649d94481d4
+          stepCounter: a17d56eb-67b5-4123-b803-c8b74d63acf8
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: |2
+
+                  ROW_NUMBER() 
+                  OVER (PARTITION BY "{{ get_value_by_column_attribute("is_hk") }}" 
+                  ORDER BY "{{ datavault4coalesce.config.ldts_alias }}") 
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LINK_ORDER_CUSTOMER: f8dca734-08b7-479c-957a-47e4b214f5ea
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: LINK_ORDER_CUSTOMER
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'LINK_ORDER_CUSTOMER') }} "LINK_ORDER_CUSTOMER"
+        name: LINKV1_CUSTOMER_ORDER
+        noLinkRefs: []
+  name: LINKV1_CUSTOMER_ORDER
+  overrideSQL: false
+  schema: ""
+  sqlType: DV2:::9
+  type: sql
+  version: 1
+type: Node
