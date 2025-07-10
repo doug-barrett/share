@@ -75,7 +75,7 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 28ff4352-7dbc-43dd-a2a8-74949f3d0bcc
+          columnCounter: 20925f93-0d39-4430-a79b-748610321390
           stepCounter: 0b833395-f5f7-4e49-83e6-1fd0019b3333
         config: {}
         dataType: NUMBER
