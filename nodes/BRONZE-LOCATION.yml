@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d422c31a-306f-4a0c-88fd-0ee01e2940a0
-name: SUPPLIER
+id: 4e927e11-0146-44d0-90c9-060ef44a1235
+name: LOCATION
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 049808b3-d163-4c48-82cc-ac6fe10cedf0
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+          columnCounter: 1b362517-6c93-4926-9ffc-3c4be223ccd7
+          stepCounter: 4e927e11-0146-44d0-90c9-060ef44a1235
         config: {}
-        dataType: VARCHAR(25)
+        dataType: NUMBER(3,0)
         defaultValue: ""
         description: ""
-        name: S_NAME
+        name: LOCATION_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9241555a-dfb4-40e3-9c90-0bf581b2d657
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+          columnCounter: 2eab2f56-ccfa-4b46-a99f-a1a51635d8bc
+          stepCounter: 4e927e11-0146-44d0-90c9-060ef44a1235
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: S_NATION_ID
+        name: BOROUGH
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f016a4db-5346-4335-9c0e-7d40f7de1b1d
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+          columnCounter: b37f9918-6e13-4f43-9f04-8c1ee908696b
+          stepCounter: 4e927e11-0146-44d0-90c9-060ef44a1235
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: S_SUPP_ID
+        name: ZONE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e453c1b6-2a1c-4f4c-a5d6-2d84e4b6d825
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+          columnCounter: bc52890b-1a4e-4c0a-9909-1d0502950c68
+          stepCounter: 4e927e11-0146-44d0-90c9-060ef44a1235
         config: {}
-        dataType: NUMBER(12,2)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: S_ACCTBAL
+        name: SERVICE_ZONE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 658da523-3df7-4988-b1d8-1bd823f8a640
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
+          columnCounter: 4a712de3-13c6-4bb6-97a3-4913c4fb3d45
+          stepCounter: 4e927e11-0146-44d0-90c9-060ef44a1235
         config: {}
-        dataType: VARCHAR(40)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: S_ADDRESS
+        name: FILENAME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,45 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 86ceed94-3b39-46eb-8c1a-da03cdc85c35
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
-        config: {}
-        dataType: VARCHAR(101)
-        defaultValue: ""
-        description: ""
-        name: S_COMMENT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: c680b9f5-0056-4a9b-83e8-e1b43b11f870
-          stepCounter: d422c31a-306f-4a0c-88fd-0ee01e2940a0
-        config: {}
-        dataType: VARCHAR(15)
-        defaultValue: ""
-        description: ""
-        name: S_PHONE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: SUPPLIER
+  name: LOCATION
   schema: ""
   sqlType: Source
   type: sourceInput

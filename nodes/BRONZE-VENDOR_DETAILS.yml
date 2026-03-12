@@ -1,6 +1,6 @@
 fileVersion: 1
-id: e8496394-0ce9-4c24-9a35-74d4dc321c61
-name: REGION
+id: e5d2a4ff-2d25-4487-aa54-a1fa1d3c52f2
+name: VENDOR_DETAILS
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 39bf7374-4e7a-487b-a1ce-29c7f3d9e9a4
-          stepCounter: e8496394-0ce9-4c24-9a35-74d4dc321c61
+          columnCounter: e9b18d06-223c-4892-955b-8b8d7b809929
+          stepCounter: e5d2a4ff-2d25-4487-aa54-a1fa1d3c52f2
         config: {}
-        dataType: VARCHAR(152)
+        dataType: NUMBER(4,0)
         defaultValue: ""
         description: ""
-        name: R_COMMENT
+        name: VENDOR_ID
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 162cabdb-7ed1-40fa-a793-da6f425768e4
-          stepCounter: e8496394-0ce9-4c24-9a35-74d4dc321c61
+          columnCounter: e6fde843-c999-476a-bdbf-9e5ff5efe04a
+          stepCounter: e5d2a4ff-2d25-4487-aa54-a1fa1d3c52f2
         config: {}
-        dataType: VARCHAR(25)
+        dataType: OBJECT
         defaultValue: ""
         description: ""
-        name: R_NAME
+        name: HQ_ADDRESS_DETAILS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c2a7ee22-d11c-4e0a-8c65-b61a55471371
-          stepCounter: e8496394-0ce9-4c24-9a35-74d4dc321c61
+          columnCounter: e389b74a-6ac8-4b5a-98eb-cb4f3abbf717
+          stepCounter: e5d2a4ff-2d25-4487-aa54-a1fa1d3c52f2
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(14)
         defaultValue: ""
         description: ""
-        name: R_REGION_ID
+        name: PHONE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,7 +65,26 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: REGION
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 196c12ca-e18e-4b88-ba2a-0d82b30f3c5a
+          stepCounter: e5d2a4ff-2d25-4487-aa54-a1fa1d3c52f2
+        config: {}
+        dataType: NUMBER(3,0)
+        defaultValue: ""
+        description: ""
+        name: DRIVERS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: VENDOR_DETAILS
   schema: ""
   sqlType: Source
   type: sourceInput

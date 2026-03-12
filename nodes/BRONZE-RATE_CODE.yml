@@ -1,0 +1,54 @@
+fileVersion: 1
+id: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+name: RATE_CODE
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: BRONZE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7848b6d1-191b-4141-a0c4-35de8b9abaa8
+          stepCounter: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+        config: {}
+        dataType: NUMBER(2,0)
+        defaultValue: ""
+        description: ""
+        name: RATE_CODE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f50369e-6921-4e2b-ba97-674742b58065
+          stepCounter: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+        config: {}
+        dataType: VARCHAR(21)
+        defaultValue: ""
+        description: ""
+        name: RATE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: RATE_CODE
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

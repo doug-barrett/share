@@ -1,0 +1,27 @@
+fileVersion: 1
+id: "432"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: SQL Work
+    short: STG
+    plural: Stages
+    tagColor: '#2EB67D'
+    inputMode: 'sql'
+    config:
+    - groupName: Options
+      items:
+      - type: materializationSelector
+        default: table
+        options:
+        - table
+        isRequired: true
+        
+      - displayName: Truncate Before
+        attributeName: truncateBefore
+        type: toggleButton
+        default: true
+name: SQL Work
+type: NodeType

@@ -1,0 +1,107 @@
+fileVersion: 1
+id: 26a2c97a-95a3-489b-a06b-b793f5873302
+name: DIM_LOCATION_PICKUP
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 20307b5e-e381-418d-bac5-2b8b5364b045
+          stepCounter: 26a2c97a-95a3-489b-a06b-b793f5873302
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DIM_LOCATION_PICKUP_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ca75ad9-56cb-4136-8817-007cd85baa6d
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69cc8e98-ed91-4a1a-b02d-ad698128c501
+          stepCounter: 26a2c97a-95a3-489b-a06b-b793f5873302
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        name: PICKUP_LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8847c8f9-e47a-496c-bd66-dadcf44742d9
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c931c53-4fca-4686-8c96-f3b2ef736598
+          stepCounter: 26a2c97a-95a3-489b-a06b-b793f5873302
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PICKUP_BOROUGH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77edbb74-a7a6-4551-8993-2e47c573b3c1
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4721227-0271-4a27-92c4-b354c0dc1a55
+          stepCounter: 26a2c97a-95a3-489b-a06b-b793f5873302
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PICKUP_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 413113e8-cfc3-407b-9f7b-7852ceb5ae58
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15b0d2b3-d71a-4629-9055-45232e32d82c
+          stepCounter: 26a2c97a-95a3-489b-a06b-b793f5873302
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: PICKUP_SERVICE_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51b4e8e3-b755-4c8d-9a8d-c17d2642b896
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DIM_LOCATION: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DIM_LOCATION
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DIM_LOCATION') }} "DIM_LOCATION"
+        name: DIM_LOCATION_PICKUP
+        noLinkRefs: []
+  name: DIM_LOCATION_PICKUP
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

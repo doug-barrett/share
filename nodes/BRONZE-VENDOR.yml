@@ -1,0 +1,54 @@
+fileVersion: 1
+id: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+name: VENDOR
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: BRONZE
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 229a6dfa-42d9-4f5b-ad50-3c01e4bc4ce1
+          stepCounter: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: VENDOR_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94e0aba8-71d4-40e9-be0c-31a3d6c03116
+          stepCounter: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: VENDOR_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: VENDOR
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

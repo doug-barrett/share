@@ -1,0 +1,40 @@
+fileVersion: 1
+id: "433"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: SV
+    short: SV
+    plural: SV
+    tagColor: '#2EB67D'
+
+    config:
+    - groupName: Options
+      items:
+      - type: materializationSelector
+        default: table
+        options:
+        - view
+        isRequired: true
+        enableIf: "false"
+        
+      - displayName: Pre-SQL
+        attributeName: preSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+      - displayName: Post-SQL
+        attributeName: postSQL
+        type: textBox
+        syntax: sql
+        isRequired: false
+
+    mappingColumns:                                  
+    - type: textBox                                  
+      headerName: 'Synonyms'                        
+      attributeName: syn
+name: Semantic View
+type: NodeType

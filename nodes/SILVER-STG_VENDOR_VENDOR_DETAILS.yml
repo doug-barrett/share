@@ -1,0 +1,172 @@
+fileVersion: 1
+id: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+name: STG_VENDOR_VENDOR_DETAILS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f195efdb-36bc-45c3-a0fc-e92d586f700b
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: VENDOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 229a6dfa-42d9-4f5b-ad50-3c01e4bc4ce1
+                stepCounter: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6ff98b7c-c414-416e-905f-cb420b6c0ca4
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: VENDOR_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 94e0aba8-71d4-40e9-be0c-31a3d6c03116
+                stepCounter: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dc290b43-5dfa-46ca-9817-85a8b939b184
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: STRING
+        description: ""
+        name: ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: de378665-6d8f-4b1d-9df6-f7ad3af91253
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e30566b0-93d0-49d6-b18a-2f9994ca3c3e
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: STRING
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9699a297-21bc-4eab-b16d-3491352b33d1
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e5440e50-192e-48d6-95d3-6f82d5dfce20
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: STRING
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7b0a3430-b481-4c13-ab3a-db8e88988f93
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06fedfd4-7fbb-4a10-ab27-a71ea28932e4
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: STRING
+        description: ""
+        name: STATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4435c4d-e0fe-4680-8804-b169db9e4667
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd261be0-693b-41ca-b3d4-d02d3cb6272c
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: STRING
+        description: ""
+        name: ZIP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 66892cbe-7925-4051-925a-7941a360b0cd
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4737e1b0-5201-4556-a20f-bed4c9040f60
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: VARCHAR(14)
+        description: ""
+        name: PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 78a5122b-e323-477a-b50c-9edd010ef280
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c850a45d-d813-422e-8643-0614301e6c9a
+          stepCounter: 014abbdb-a6a2-4117-88a0-84b3b04c51d2
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        name: DRIVERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6eaa1e8f-027d-4f24-bcb0-c9230fa56e61
+                stepCounter: a707acac-a196-4bed-89d2-ec3cb81ca452
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          VENDOR: f73b60cb-9f53-40d8-b0f4-4d435b2333c1
+          V_VENDOR_DETAILS: a707acac-a196-4bed-89d2-ec3cb81ca452
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: BRONZE
+            nodeName: VENDOR
+          - locationName: SILVER
+            nodeName: V_VENDOR_DETAILS
+        join:
+          joinCondition: |-
+            FROM {{ ref('BRONZE', 'VENDOR') }} "VENDOR"
+            INNER JOIN {{ ref('SILVER', 'V_VENDOR_DETAILS') }} "V_VENDOR_DETAILS"
+            ON "VENDOR"."VENDOR_ID" = "V_VENDOR_DETAILS"."VENDOR_ID"
+        name: STG_VENDOR_VENDOR_DETAILS
+        noLinkRefs: []
+  name: STG_VENDOR_VENDOR_DETAILS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

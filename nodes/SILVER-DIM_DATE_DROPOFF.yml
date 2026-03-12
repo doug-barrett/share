@@ -1,0 +1,177 @@
+fileVersion: 1
+id: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+name: DIM_DATE_DROPOFF
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5cde97d-3e89-4695-8dd0-5b9b40eaaf3e
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DIM_DATE_DROPOFF_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 758c6068-489e-4d9f-8029-2c59774d4f69
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3c27537-6db6-4733-8b84-7163b206bc4d
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: DATE
+        description: ""
+        name: DROPOFF_CALENDAR_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 622736c7-8808-4432-8d30-056974b61a2d
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd709833-d9f9-4bd5-9b20-0e1f3704b33c
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 758453de-ecfc-42b9-a0ad-77502beb1127
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15bcccaf-a002-4425-8b1e-96dbb9e9db0f
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1c099d55-edcc-42eb-a825-432191eeaf8c
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2a21dbb-ccea-4323-a3fe-bc3080f96725
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: CHAR(3)
+        description: ""
+        name: DROPOFF_MONTH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fe54a3d8-da9f-4c91-a76f-6a90f9940fa2
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ed3a3b6-f9ca-4479-aff2-5f3128474bf4
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_DAY_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f5f38357-52bd-4688-aa0e-16f2c1ebdff5
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0456fe58-18dd-4064-ac82-a58634da192a
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: VARCHAR(9)
+        description: ""
+        name: DROPOFF_DAY_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52dd271a-7265-4a21-9b57-ea37dd11d318
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b68db91a-716c-4824-a14f-e8ec9bcb6a63
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_WEEK_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2249e43-3e33-48c0-aadd-741e04e93511
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ab650cda-6fa2-4d14-a2e7-370b53515ba5
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_DAY_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 911cf306-09c3-407b-8604-0c3644a419a2
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c4afa54-7f0c-432e-abeb-0a6101752dbe
+          stepCounter: a706b7cc-8cf0-4f02-90a9-82fd3e9761aa
+        config: {}
+        dataType: SMALLINT
+        description: ""
+        name: DROPOFF_QTR_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b8aad147-e055-4a56-b1c5-109c9f33ed68
+                stepCounter: 44463399-1e95-4346-a25d-0ed3bb9df382
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DIM_DATE: 44463399-1e95-4346-a25d-0ed3bb9df382
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DIM_DATE
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DIM_DATE') }} "DIM_DATE"
+        name: DIM_DATE_DROPOFF
+        noLinkRefs: []
+  name: DIM_DATE_DROPOFF
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

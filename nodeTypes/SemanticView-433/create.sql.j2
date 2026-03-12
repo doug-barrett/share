@@ -1,0 +1,63 @@
+{{ stage('Create Stage View') }}
+
+{%- set source = sources[0] %}
+
+{%- set ns = namespace(fct = "", fct_bk = "") %}
+{%- set dims = [] %}
+{%- set dim_key = "_KEY" %}
+{%- set dim_pre = "DIM_" %}
+{%- set sys_pre = "SYSTEM_" %}
+{%- for tab in source.columns %}
+    {%- set colName = tab.sourceColumns[0].column.name %}
+    {%- set tabDetails = tab.sourceColumns[0].node.location.name + "|" + tab.sourceColumns[0].node.name + "|" + tab.sourceColumns[0].node.name + dim_key + "|" + tab.sourceColumns[0].node.nodeType %}
+    {%- if tabDetails not in dims and tab.sourceColumns[0].node.nodeType == "Dimension" %}
+        {{- dims.append( tabDetails ) or "" -}}
+    {%- endif %}
+    {%- if tab.sourceColumns[0].node.nodeType == "Fact" and tab.sourceColumns[0].column.isBusinessKey %}
+        {%- set ns.fct_bk = ns.fct_bk + colName + "," %}
+        {%- set ns.fct = tabDetails %}
+    {%- endif %}
+{%- endfor %}
+{%- set ns.fct_bk = (ns.fct_bk + "~") | replace (",~", "")  %}
+
+{%- if ns.fct == ""  %}
+     'No Fact found'
+{%- elif dims | length == 0 %}
+     'No Dims found'
+{%- else %}
+
+CREATE OR REPLACE SEMANTIC VIEW {{ this }}
+TABLES (
+        {{ ns.fct.split("|")[1] }} AS {{ref( ns.fct.split("|")[0], ns.fct.split("|")[1] ) }} PRIMARY KEY ( {{ns.fct_bk}} ),
+    {%- for dim in dims %}
+        {{ dim.split("|")[1] }} AS {{ref( dim.split("|")[0], dim.split("|")[1] ) }} PRIMARY KEY ( {{ dim.split("|")[2] }} ){%- if not loop.last -%}, {% endif %}
+    {%- endfor %}
+)
+
+RELATIONSHIPS (
+    {%- for dim in dims %}
+        {{ ns.fct.split("|")[1] }} ( {{ dim.split("|")[2] }} ) REFERENCES {{ dim.split("|")[1] }} {%- if not loop.last -%}, {% endif %}
+    {%- endfor %}
+)
+
+FACTS (
+    {%- for col in source.columns if col.sourceColumns[0].node.nodeType == "Fact" and col.transform | trim == "" and not col.name.startswith(sys_pre) and not col.name.endswith(dim_key) %}
+        {{ get_source_transform(col) }} AS  "{{ col.name }}" {%- if col.syn | length > 0 %} WITH SYNONYMS = ( {{ col.syn }} ) {%- endif %}
+        {%- if col.description | length > 0 %} COMMENT = '{{ col.description | escape }}'{% endif %}{%- if not loop.last -%}, {% endif %}
+    {%- endfor %}
+)
+
+DIMENSIONS (
+    {%- for col in source.columns if col.sourceColumns[0].node.nodeType == "Dimension" and not col.name.startswith(sys_pre) and not col.name.endswith(dim_key) %}
+        {{ get_source_transform(col) }} AS  "{{ col.name }}"  {%- if col.syn | length > 0 %} WITH SYNONYMS = ( {{ col.syn }} ) {%- endif %}
+        {%- if col.description | length > 0 %} COMMENT = '{{ col.description | escape }}'{% endif %}{%- if not loop.last -%}, {% endif %}
+    {%- endfor %}
+)
+
+METRICS (
+    {%- for col in source.columns if col.sourceColumns[0].node.nodeType == "Fact" and col.transform | trim != "" and not col.name.startswith(sys_pre) and not col.name.endswith(dim_key) and col.name not in ns.fct_bk %}
+        "{{col.sourceColumns[0].node.name}}"."{{ col.name }}" AS {{ get_source_transform(col) }} {%- if col.syn | length > 0 %} WITH SYNONYMS = ( {{ col.syn }} ) {%- endif %}{%- if col.description | length > 0 %} COMMENT = '{{ col.description | escape }}'{% endif %}{%- if not loop.last -%}, {% endif %}
+    {%- endfor %}
+  )
+{%- if node.description | length > 0 %} COMMENT = '{{ node.description | escape }}'{% endif %}
+{% endif %}

@@ -1,0 +1,68 @@
+fileVersion: 1
+id: e01db723-28ac-4841-a8d0-1b7f6fc1e7a4
+name: STG_RATE_CODE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ca4632e-8625-477c-98f0-f05fd2a912ac
+          stepCounter: e01db723-28ac-4841-a8d0-1b7f6fc1e7a4
+        config: {}
+        dataType: NUMBER(2,0)
+        description: ""
+        name: RATE_CODE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7848b6d1-191b-4141-a0c4-35de8b9abaa8
+                stepCounter: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48630436-4887-4234-be1c-9763ba1de602
+          stepCounter: e01db723-28ac-4841-a8d0-1b7f6fc1e7a4
+        config: {}
+        dataType: VARCHAR(21)
+        description: ""
+        name: RATE_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f50369e-6921-4e2b-ba97-674742b58065
+                stepCounter: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          RATE_CODE: de935c40-1a4b-4b9a-a42d-994b9f799a0f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: BRONZE
+            nodeName: RATE_CODE
+        join:
+          joinCondition: FROM {{ ref('BRONZE', 'RATE_CODE') }} "RATE_CODE"
+        name: STG_RATE_CODE
+        noLinkRefs: []
+  name: STG_RATE_CODE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

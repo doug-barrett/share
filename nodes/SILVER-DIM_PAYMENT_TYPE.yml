@@ -1,0 +1,186 @@
+fileVersion: 1
+id: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+name: DIM_PAYMENT_TYPE
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bfff3b35-29b1-4ae7-9334-07e3e548ec77
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_PAYMENT_TYPE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 818a7855-6fb0-4ec9-a822-0f8cdbacee53
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        isBusinessKey: true
+        name: PAYMENT_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e0cd4a1-2b50-4338-a340-613aac085cee
+                stepCounter: 088a2f07-2721-454b-8a44-ba5f8640da0d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 374f7e50-98c9-4573-9275-7e51d39df27a
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: VARCHAR(14)
+        description: ""
+        name: PAYMENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7c1491b-803c-4bcb-976e-d2d803a9b6ca
+                stepCounter: 088a2f07-2721-454b-8a44-ba5f8640da0d
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7cb2d06f-5447-49a2-956e-b8cac490413a
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdb55178-ca3c-435f-8fa6-634e72f0fb50
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fbe0f06-f5d3-4e5e-9ba4-13ceccdc9200
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ede6d60-1bf1-470f-80fd-bcb295e096ca
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13d65fcb-0619-492d-828a-6f137178cb72
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7cb4c555-493a-4cf6-a886-ece31b6e2770
+          stepCounter: 87b47e48-5ba0-46fa-9e45-dda6cbba517b
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_PAYMENT_TYPE: 088a2f07-2721-454b-8a44-ba5f8640da0d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: STG_PAYMENT_TYPE
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'STG_PAYMENT_TYPE') }} "STG_PAYMENT_TYPE"
+        name: DIM_PAYMENT_TYPE
+        noLinkRefs: []
+  name: DIM_PAYMENT_TYPE
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

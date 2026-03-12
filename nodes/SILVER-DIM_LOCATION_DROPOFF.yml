@@ -1,0 +1,107 @@
+fileVersion: 1
+id: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+name: DIM_LOCATION_DROPOFF
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SILVER
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c8c3c2cb-81b6-495a-ba21-454a8653aed9
+          stepCounter: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DIM_LOCATION_DROPOFF_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3ca75ad9-56cb-4136-8817-007cd85baa6d
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63fb6b1c-c651-42cc-911a-cdbf0362bf6f
+          stepCounter: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+        config: {}
+        dataType: NUMBER(3,0)
+        description: ""
+        name: DROPOFF_LOCATION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8847c8f9-e47a-496c-bd66-dadcf44742d9
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a19d5d6-7ce6-4a86-8704-84279f6af7d7
+          stepCounter: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DROPOFF_BOROUGH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 77edbb74-a7a6-4551-8993-2e47c573b3c1
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7bf6261-48be-4a87-abba-b1448dcd3fff
+          stepCounter: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DROPOFF_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 413113e8-cfc3-407b-9f7b-7852ceb5ae58
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 95c26235-475b-414c-9823-745845f8a646
+          stepCounter: 804e8a13-9aa1-4048-a79e-1e9ea8c3e3d7
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: DROPOFF_SERVICE_ZONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51b4e8e3-b755-4c8d-9a8d-c17d2642b896
+                stepCounter: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DIM_LOCATION: a3abadb3-c2c2-4a0a-8752-027f1a77291c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SILVER
+            nodeName: DIM_LOCATION
+        join:
+          joinCondition: FROM {{ ref('SILVER', 'DIM_LOCATION') }} "DIM_LOCATION"
+        name: DIM_LOCATION_DROPOFF
+        noLinkRefs: []
+  name: DIM_LOCATION_DROPOFF
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

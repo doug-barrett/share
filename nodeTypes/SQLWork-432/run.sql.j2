@@ -1,0 +1,18 @@
+{{ stage('Truncate Stage Table') }}
+TRUNCATE IF EXISTS {{ ref_no_link(node.location.name, node.name) }}
+{{ stage('Insert Data' ) }}
+{% set source = sources[0] %}
+INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
+(
+    {% for col in source.columns %}
+        "{{ col.name }}"
+        {%- if not loop.last -%},{% endif %}
+    {% endfor %}
+)
+{{source.cteString}}
+SELECT
+{% for col in source.columns %}
+    {{ get_source_transform(col) }} AS "{{ col.name }}"
+    {%- if not loop.last -%}, {% endif %}
+{% endfor %}
+{{ source.join }}

@@ -1,0 +1,14 @@
+fileVersion: 1
+id: "291"
+mappingDefinitions:
+  BRONZE:
+    database: NY_TAXI
+    schema: BRONZE
+  GOLD:
+    database: NY_TAXI
+    schema: GOLD
+  SILVER:
+    database: NY_TAXI
+    schema: SILVER
+name: Production
+type: Environment
