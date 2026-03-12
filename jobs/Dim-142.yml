@@ -1,6 +1,0 @@
-excludeSelector: ""
-fileVersion: 1
-id: "142"
-includeSelector: "+{ location: GOLD name: DIM_* }"
-name: Dim
-type: Job
