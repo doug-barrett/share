@@ -10,5 +10,5 @@ mappingDefinitions:
   SILVER:
     database: NY_TAXI
     schema: SILVER
-name: Production
+name: Share Taxi Production
 type: Environment
