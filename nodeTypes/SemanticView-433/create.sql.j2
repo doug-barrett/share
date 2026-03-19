@@ -10,7 +10,7 @@
 {%- for tab in source.columns %}
     {%- set colName = tab.sourceColumns[0].column.name %}
     {%- set tabDetails = tab.sourceColumns[0].node.location.name + "|" + tab.sourceColumns[0].node.name + "|" + tab.sourceColumns[0].node.name + dim_key + "|" + tab.sourceColumns[0].node.nodeType %}
-    {%- if tabDetails not in dims and tab.sourceColumns[0].node.nodeType == "Dimension" %}
+    {%- if tabDetails not in dims and (tab.sourceColumns[0].node.nodeType == "Dimension" or tab.sourceColumns[0].node.nodeType == "View") %}
         {{- dims.append( tabDetails ) or "" -}}
     {%- endif %}
     {%- if tab.sourceColumns[0].node.nodeType == "Fact" and tab.sourceColumns[0].column.isBusinessKey %}
