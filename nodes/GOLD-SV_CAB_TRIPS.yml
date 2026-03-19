@@ -564,7 +564,8 @@ operation:
         columnReference:
           columnCounter: 187cb70a-5d57-4e65-8707-fcf53f22df01
           stepCounter: 01ac8cdd-97c5-48e3-8f63-6a35e5326640
-        config: {}
+        config:
+          syn: "'pickup weekday'"
         dataType: VARCHAR(9)
         description: ""
         name: PICKUP_DAY_OF_WEEK
@@ -788,7 +789,8 @@ operation:
         columnReference:
           columnCounter: ebc5fad7-8d2e-4958-a737-5d64f7889a1a
           stepCounter: 01ac8cdd-97c5-48e3-8f63-6a35e5326640
-        config: {}
+        config:
+          syn: "'pickup borough'"
         dataType: VARCHAR(16777216)
         description: ""
         name: PICKUP_BOROUGH
