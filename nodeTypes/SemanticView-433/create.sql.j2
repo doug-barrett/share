@@ -48,7 +48,7 @@ FACTS (
 )
 
 DIMENSIONS (
-    {%- for col in source.columns if col.sourceColumns[0].node.nodeType == "Dimension" and not col.name.startswith(sys_pre) and not col.name.endswith(dim_key) %}
+    {%- for col in source.columns if (col.sourceColumns[0].node.nodeType == "Dimension" or col.sourceColumns[0].node.nodeType == "View") and not col.name.startswith(sys_pre) and not col.name.endswith(dim_key) %}
         {{ get_source_transform(col) }} AS  "{{ col.name }}"  {%- if col.syn | length > 0 %} WITH SYNONYMS = ( {{ col.syn }} ) {%- endif %}
         {%- if col.description | length > 0 %} COMMENT = '{{ col.description | escape }}'{% endif %}{%- if not loop.last -%}, {% endif %}
     {%- endfor %}
