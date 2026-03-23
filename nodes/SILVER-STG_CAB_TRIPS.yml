@@ -27,16 +27,16 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1f6d279f-8b82-4e78-b8fc-03bcc2af71ca
+          columnCounter: bad7179a-9788-44f6-a198-777bc0b3e773
           stepCounter: 15e97349-e246-46cd-91ff-32726d23b858
         config: {}
         dataType: NUMBER(18,0)
         description: ""
-        name: ROW_ID
+        name: TRIP_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 107e091c-34e8-454c-97c9-8c62fdfb5e2d
+              - columnCounter: 5c86c400-2b9a-44b3-9723-762cff6f59dd
                 stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
             transform: ""
       - appliedColumnTests: {}
@@ -64,9 +64,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8c423112-4040-4494-9c1f-1bddf3fe9687
+              - columnCounter: 48ca2fe0-d790-4b74-847a-71a49215c277
                 stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
-            transform: TO_TIMESTAMP(YELLOW_CAB_TRIPS.TPEP_PICKUP_DATETIME,6)
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 019ce36d-0605-742f-9760-dc86c547874b
@@ -78,9 +78,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8ce3131f-8c03-458d-808b-076c68e85ccc
+              - columnCounter: 09b69972-097e-4707-8867-357f97a2571b
                 stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
-            transform: TO_TIMESTAMP(YELLOW_CAB_TRIPS.TPEP_DROPOFF_DATETIME,6)
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 019ce36d-0605-742f-9760-e1304b9b54f8
@@ -332,7 +332,7 @@ operation:
           - columnReferences:
               - columnCounter: 1caa554a-ee7b-44b7-8686-8e2371861863
                 stepCounter: 88cd9e8a-53ff-4704-b5e8-c37198aa5c3c
-            transform: DATEDIFF('MINUTE', PICKUP_DATETIME, DROPOFF_DATETIME)
+            transform: DATEDIFF('MINUTE', YELLOW_CAB_TRIPS.PICKUP_DATETIME, YELLOW_CAB_TRIPS.DROPOFF_DATETIME)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 019ce36f-ec18-71a5-bb40-baf089571a74
@@ -346,7 +346,7 @@ operation:
           - columnReferences:
               - columnCounter: 1caa554a-ee7b-44b7-8686-8e2371861863
                 stepCounter: 88cd9e8a-53ff-4704-b5e8-c37198aa5c3c
-            transform: DIV0(TRIP_DISTANCE,TRIP_DURATION_MINUTES)*60
+            transform: DIV0(YELLOW_CAB_TRIPS.TRIP_DISTANCE,DATEDIFF('MINUTE', YELLOW_CAB_TRIPS.PICKUP_DATETIME, YELLOW_CAB_TRIPS.DROPOFF_DATETIME))*60
     cteString: ""
     description: ""
     destinationName: ""

@@ -19,16 +19,16 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4971da21-5ce1-45df-b191-ea89df2ac668
+          columnCounter: fb84da5d-0b2e-47fd-be1d-1e9f00eb8e83
           stepCounter: dd586f2a-f245-4034-b887-c9ff9c04f871
         config: {}
         dataType: NUMBER(18,0)
         description: ""
-        name: ROW_ID
+        name: TRIP_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 1f6d279f-8b82-4e78-b8fc-03bcc2af71ca
+              - columnCounter: bad7179a-9788-44f6-a198-777bc0b3e773
                 stepCounter: 15e97349-e246-46cd-91ff-32726d23b858
             transform: ""
       - appliedColumnTests: {}

@@ -32,44 +32,6 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0ffe41e5-5310-4be1-b2a7-193d82f4909d
-          stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: TPEP_PICKUP_DATETIME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 49f7477b-2e67-408e-8553-a023d9b3b9dc
-          stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: TPEP_DROPOFF_DATETIME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
           columnCounter: 052a163e-f4b3-4d5d-99cc-8cc592636b28
           stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
         config: {}
@@ -393,13 +355,51 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 107e091c-34e8-454c-97c9-8c62fdfb5e2d
+          columnCounter: 5c86c400-2b9a-44b3-9723-762cff6f59dd
           stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
         config: {}
         dataType: NUMBER(18,0)
         defaultValue: ""
         description: ""
-        name: ROW_ID
+        name: TRIP_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48ca2fe0-d790-4b74-847a-71a49215c277
+          stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
+        config: {}
+        dataType: TIMESTAMP_NTZ(6)
+        defaultValue: ""
+        description: ""
+        name: PICKUP_DATETIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 09b69972-097e-4707-8867-357f97a2571b
+          stepCounter: 4c7b51b4-aece-4a40-a901-d3edc55e74d3
+        config: {}
+        dataType: TIMESTAMP_NTZ(6)
+        defaultValue: ""
+        description: ""
+        name: DROPOFF_DATETIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:

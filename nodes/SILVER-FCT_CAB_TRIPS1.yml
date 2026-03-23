@@ -23,11 +23,11 @@ operation:
         dataType: NUMBER(18,0)
         description: ""
         isBusinessKey: true
-        name: ROW_ID
+        name: TRIP_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4971da21-5ce1-45df-b191-ea89df2ac668
+              - columnCounter: fb84da5d-0b2e-47fd-be1d-1e9f00eb8e83
                 stepCounter: dd586f2a-f245-4034-b887-c9ff9c04f871
             transform: ""
       - appliedColumnTests: {}
