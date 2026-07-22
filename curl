@@ -1,0 +1,11 @@
+curl --request GET \
+    --url 'https://app.coalescesoftware.io/api/v1/environments?detail=false' \
+    --header 'accept: application/json' \
+    --header 'authorization: Bearer AMf-vBwMTT-82juXqlS9rRu853m37qmJ-j-8j5Z4Wf1pSG6eXfgExiB2tM-bPHicoLyCB4tpujDSEHeB9ERJFdnuDh97g_UcFp4kblRzK4Y2LrGE0VtnhF0sKZyZ4P0jUkWi9gUcKgpTqNEQfL7MWzWD7anp--Qc_1sM3z0mtmY8I_CGO1GJHQmGOeohThiHYqAvRscVnXX6CIFvbBYrwCUJKRBj7pwW8A'
+
+
+
+    curl --request GET \
+    --url 'https://app.coalescesoftware.io/api/v1/environments?detail=false' \
+    --header 'accept: application/json' \
+    --header 'authorization: Bearer AMf-vBwMTT-82juXqlS9rRu853m37qmJ-j-8j5Z4Wf1pSG6eXfgExiB2tM-bPHicoLyCB4tpujDSEHeB9ERJFdnuDh97g_UcFp4kblRzK4Y2LrGE0VtnhF0sKZyZ4P0jUkWi9gUcKgpTqNEQfL7MWzWD7anp--Qc_1sM3z0mtmY8I_CGO1GJHQmGOeohThiHYqAvRscVnXX6CIFvbBYrwCUJKRBj7pwW8A'
